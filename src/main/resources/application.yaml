@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  config:
+    import: optional:secrets.yaml
+  application:
+    name: food-api
+  datasource:
+    password: root
+    url: jdbc:postgresql://localhost:5432/postgres?autoreconnect=true&createDatabaseIfNotExist=true
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
+    show-sql: true
+  flyway:
+    url: jdbc:postgresql://localhost:5432/postgres
+    user: root
+    password: root
